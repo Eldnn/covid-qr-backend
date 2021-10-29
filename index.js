@@ -165,9 +165,9 @@ function checkRulesAndCreateObject(data) {
 
 function validateVacc(cert_data) {
     // Version 1.4 (https://ec.europa.eu/health/sites/default/files/ehealth/docs/digital-green-value-sets_en.pdf)
-    let vacc_date = cert_data.dt ? new Date(cert_data.dt*1000) : new Date(0);
+    let vacc_date = cert_data.dt ? new Date(cert_data.dt) : new Date(0);
     valid = 
-        (cert_data.tg && cert_data.tg === '840539006') && // Vaccinated against covid
+        (cert_data.certg && cert_data.tg === '840539006') && // Vaccinated against covid
         (cert_data.vp && ['1119305005', '1119349007', 'J07BX03'].indexOf(cert_data.vp) > -1) && //Type of the vaccine or prophylaxis used
         (cert_data.mp && cert_data.ma ) && // check fields are there, validate content is too much for this project
         (cert_data.dn && cert_data.sd && cert_data.dn === cert_data.sd) && // All doses received
@@ -176,7 +176,7 @@ function validateVacc(cert_data) {
 }
 
 function validateTest(cert_data) {
-    let test_time = cert_data.sc ? new Date(cert_data.sc*1000) : new Date(0);
+    let test_time = cert_data.sc ? new Date(cert_data.sc) : new Date(0);
     valid = 
         (cert_data.tg && cert_data.tg === '840539006') && 
         (cert_data.tt && ['LP6464-4', 'LP217198-3'].indexOf(cert_data.tt) > -1) && 
@@ -187,7 +187,7 @@ function validateTest(cert_data) {
 }
 
 function validateRec(cert_data) {
-    let test_time = cert_data.fr ? new Date(cert_data.fr*1000) : new Date(0);
+    let test_time = cert_data.fr ? new Date(cert_data.fr) : new Date(0);
     let time_diff = new Date() - test_time;
     valid = 
         (cert_data.tg && cert_data.tg === '840539006') && 
