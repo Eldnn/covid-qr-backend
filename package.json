@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Adrian Joerg",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "base45": "^3.0.0",
     "cbor": "^8.0.2",
