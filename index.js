@@ -247,5 +247,5 @@ app.listen(PORT, function() {
     console.log(`Server running at on port ${PORT}`);
     keys = JSON.parse(fs.readFileSync('keys.json'));
     certs = JSON.parse(fs.readFileSync('updates.json'));
-    //updateTrustlist();
+    updateTrustlist();
  })
